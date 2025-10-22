@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Applications Overview · Don't Waste My Time</title>
+  <link rel="stylesheet" href="css/company.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true">
+          <img src="images/logo.png" alt="">
+        </div>
+        <!-- <h1>Don't Waste <br>My Time</h1> -->
+      </div>
+      <nav class="nav">
+        <a><span>Dashboard</span></a>
+        <a id="openPostJob"><span>Post Job</span></a>
+        <a id="openManageJobs"><span>Manage Jobs</span></a>
+        <a id="logout"><span>Log Out</span></a>
+      </nav>
+    </aside>
+    <!-- Main -->
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h2 class="headline">Applications Overview</h2>
+          <p class="welcome">Welcome back! Here's the overview of Applicants!</p>
+        </div>
+        <div class="user"><span class="welcome">Employer</span></div>
+      </header>
+
+      <!-- Job summary banner -->
+      <div id="jobsContainer">
+
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Profile modal -->
+  <dialog id="profileModal" aria-label="Candidate profile">
+    <div class="modal-hd">
+      <strong id="modalName">Candidate</strong>
+      <button class="btn" id="closeModalBtn" type="button">Close</button>
+    </div>
+    <div class="modal-bd" id="modalBody">
+      <!-- profile details inserted by JS -->
+    </div>
+  </dialog>
+
+  <!-- Post Job Modal -->
+  <dialog id="postJobModal" class="modal">
+    <form id="postJobForm" method="dialog">
+      <div class="modal-hd">
+        <strong>Create New Job</strong>
+        <button type="button" class="btn" id="postJobClose">✕</button>
+      </div>
+      <div class="modal-bd">
+        <label class="cp-field">
+          <span>Job Title</span>
+          <input id="pj_title" class="cp-input" type="text" required>
+        </label>
+
+        <label class="cp-field">
+          <span>Location</span>
+          <input id="pj_location" class="cp-input" type="text" required>
+        </label>
+
+        <label class="cp-field">
+          <span>Salary / Wages</span>
+          <input id="pj_salary" class="cp-input" type="text" placeholder="e.g. 50k€/year">
+        </label>
+
+        <label class="cp-field">
+          <span>Type</span>
+          <select id="pj_type" class="cp-input" required>
+            <option value="CDI">CDI</option>
+            <option value="CDD">CDD</option>
+            <option value="Internship">Internship</option>
+            <option value="Apprenticeship">Apprenticeship</option>
+            <option value="Interim">Interim</option>
+            <option value="Part-time">Part-time</option>
+          </select>
+        </label>
+
+        <label class="cp-field">
+          <span>Short Description</span>
+          <textarea id="pj_short" class="cp-textarea" rows="3" required></textarea>
+        </label>
+
+        <label class="cp-field">
+          <span>Full Description</span>
+          <textarea id="pj_full" class="cp-textarea" rows="6" required></textarea>
+        </label>
+
+        <label class="cp-field">
+          <span>Schedule</span>
+          <input id="pj_schedule" class="cp-input" type="text" placeholder="e.g. 35h/week" required>
+        </label>
+
+        <label class="cp-field">
+          <span>Experience</span>
+          <select id="pj_experience" class="cp-select">
+            <option value="">--Please choose an option--</option>
+            <option value="Senior">Senior</option>
+            <option value="Mid">Mid</option>
+            <option value="Entry">Entry</option>
+          </select>
+        </label>
+
+      </div>
+      <div class="cp-actions">
+        <button type="button" class="btn" id="postJobCancel">Cancel</button>
+        <button type="submit" class="btn btn_primary" id="postJobSave">Create Job</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="manageJobsModal" class="modal">
+    <div class="modal-hd">
+      <strong>Manage Jobs</strong>
+      <button type="button" class="btn" id="manageJobsClose">✕</button>
+    </div>
+    <div class="modal-bd">
+      <div id="manageJobsList" class="list"><!-- JS 渲染岗位项 --></div>
+    </div>
+    <div class="cp-actions">
+      <button type="button" class="btn" id="manageJobsRefresh">Refresh</button>
+    </div>
+  </dialog>
+
+  <!-- Edit Job Modal -->
+  <dialog id="editJobModal" class="modal">
+    <form id="editJobForm" method="dialog">
+      <div class="modal-hd">
+        <strong>Edit Job</strong>
+        <button type="button" class="btn" id="editJobClose">✕</button>
+      </div>
+      <div class="modal-bd">
+        <input type="hidden" id="ej_id">
+        <label class="cp-field">
+          <span>Job Title</span>
+          <input id="ej_title" class="cp-input" type="text" required>
+        </label>
+        <label class="cp-field">
+          <span>Location</span>
+          <input id="ej_location" class="cp-input" type="text" required>
+        </label>
+        <label class="cp-field">
+          <span>Salary / Wages</span>
+          <input id="ej_salary" class="cp-input" type="text">
+        </label>
+        <label class="cp-field">
+          <span>Type</span>
+          <select id="ej_type" class="cp-input" required>
+            <option value="CDI">CDI</option>
+            <option value="CDD">CDD</option>
+            <option value="Internship">Internship</option>
+            <option value="Apprenticeship">Apprenticeship</option>
+            <option value="Interim">Interim</option>
+            <option value="Part-time">Part-time</option>
+          </select>
+        </label>
+        <label class="cp-field">
+          <span>Short Description</span>
+          <textarea id="ej_short" class="cp-textarea" rows="3" required></textarea>
+        </label>
+        <label class="cp-field">
+          <span>Full Description</span>
+          <textarea id="ej_full" class="cp-textarea" rows="6" required></textarea>
+        </label>
+        <label class="cp-field">
+          <span>Schedule</span>
+          <input id="ej_schedule" class="cp-input" type="text">
+        </label>
+          <label class="cp-field">
+              <span>Experience</span>
+              <select id="ej_experience" class="cp-select">
+                  <option value="Senior">Senior</option>
+                  <option value="Mid">Mid</option>
+                  <option value="Entry">Entry</option>
+              </select>
+          </label>
+      </div>
+      <div class="cp-actions">
+        <button type="button" class="btn" id="editJobCancel">Cancel</button>
+        <button type="submit" class="btn btn_primary">Save Changes</button>
+      </div>
+    </form>
+  </dialog>
+
+
+
+  <script src="js/company.js"></script>
+</body>
+</html>

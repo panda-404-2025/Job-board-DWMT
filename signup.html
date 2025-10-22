@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+    <img src="/images/logo.png" alt="" class="logo">
+    <h1>Signup</h1>
+    <p id="error-message"></p>
+    <form id="form">
+
+        <div>
+            <label for="lastname-input" class="icon-label">
+            <img src="/images/person_3_24dp_081B29_FILL1_wght400_GRAD0_opsz24.svg" alt="">
+            </label>
+            <input type="text" name="lastname" id="lastname-input" placeholder="Last Name">
+        </div>
+
+        <div>
+            <label for="firstname-input" class="icon-label">
+            <img src="/images/person_4_24dp_081B29_FILL1_wght400_GRAD0_opsz24.svg" alt="">
+            </label>
+            <input type="text" name="firstname" id="firstname-input" placeholder="First Name">
+        </div>
+
+        <div>
+            <label for="email-input" class="icon-label">
+            <img src="/images/alternate_email_24dp_081B29_FILL1_wght400_GRAD0_opsz24.svg" alt="">
+            </label>
+            <input type="email" name="email" id="email-input" placeholder="dwmt@example.com">
+        </div>
+        <div>
+            <label for="phone-input" class="icon-label">
+            <img src="/images/phone-fill.svg" alt="">
+            </label>
+            <input type="phone" name="phone" id="phone-input" placeholder="06 66 66 66 66">
+        </div>
+        <div>
+            <label for="password-input" class="icon-label">
+            <img src="/images/lock_24dp_081B29_FILL1_wght400_GRAD0_opsz24.svg" alt="">
+            </label>
+            <input type="password" name="password" id="password-input" placeholder="Password">
+        </div>
+
+        
+        <div>
+            <label for="repeat-password-input" class="icon-label">
+            <img src="/images/mail_shield_24dp_081B29_FILL1_wght400_GRAD0_opsz24.svg" alt="">
+            </label>
+            <input type="password" name="repeat-password" id="repeat-password-input" placeholder="Repeat Password">
+        </div>
+
+        <div class="radio-row">
+            <label for="type-people-input" class="icon-label">
+                <img src="/images/user-add-fill.svg" alt="">
+            </label>
+            
+            <div class="choice-group">
+                <input type="radio" name="type-people" id="candidate" value="Candidate" checked />
+                <label for="candidate">Candidate</label>
+            
+                <input type="radio" name="type-people" id="company" value="Company"/>
+                <label for="company">Company</label>
+            </div>
+        </div>
+
+        <div id="skillsRow" class="skills-row" hidden>
+
+            <label for="skillsInput" class="icon-label">
+                <img src="/images/person_3_24dp_081B29_FILL1_wght400_GRAD0_opsz24.svg" alt="">
+            </label>
+
+            <div class="tags" id="skillsTags">
+                <div id="skillsChips" class="chips"></div>
+                <input id="skillsInput" type="text" placeholder="Skills (press Enter or , to add)" autocomplete="off">
+
+                <input type="hidden" name="skills" id="skillsHidden">
+            </div>
+
+        </div>
+
+        <div id="companyRow" class="select-row" hidden>
+            <label for="companySelect" class="icon-label">
+                <img src="/images/building-fill.svg" alt="">
+            </label>
+
+            <select id="companySelect" name="company_id">
+                <option value="" selected disabled>Choose your company…</option>
+            </select>
+        </div>
+
+        <button type="submit">Signup</button>
+
+    </form>
+    <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+    
+    <script type="text/javascript" src="js/validation.js" defer></script>
+
+</body>
+</html>

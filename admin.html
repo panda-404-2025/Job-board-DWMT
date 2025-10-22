@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin JobBoard</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="header-content">
+            <!-- <img src="logo.png" alt=""> -->
+            <a href="admin.html" class="logo"><img src="images/logo.png" alt=""></a>
+            <div class="auth-buttons" id="auth-buttons">
+                <button class="btn btn-outline" id="btnLogOut">Log out</button>
+            </div>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="container">
+        <div class="menu">
+            <button onclick="showSection('ads')">Advertisements</button>
+            <button onclick="showSection('users')">Users</button>
+            <button onclick="showSection('companies')">Companies</button>
+            <button onclick="showSection('applications')">Applications</button>
+        </div>
+        <div id="ads">
+            <button class="btn-add">Add Advertissement</button>
+            <table id="ads-tab">
+                <thead>
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Short description
+                    </th>
+                    <th>
+                        Salary
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        location
+                    </th>
+                    <th>
+                        experience
+                    </th>
+                    <th>
+                        Company
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+                </thead>
+                <tbody id="ads-table-body">
+
+                </tbody>
+            </table>
+        </div>
+        <div id="users">
+            <button class="btn-add">Add User</button>
+            <table id="users-tab">
+                <thead>
+                <tr>
+                    <th>
+                        First name
+                    </th>
+                    <th>
+                        Last name
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Phone number
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Skills
+                    </th>
+                    <th>
+                        Company
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+                </thead>
+                <tbody id="users-table-body">
+
+                </tbody>
+            </table>
+        </div>
+        <div id="companies">
+            <button class="btn-add">Add Company</button>
+            <table id="companies-tab">
+                <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+                </thead>
+                <tbody id="companies-table-body">
+
+                </tbody>
+            </table>
+        </div>
+        <div id="applications">
+            <button class="btn-add"> Add Application</button>
+            <table id="applications-table">
+                <thead>
+                <tr>
+                    <th>
+                        People
+                    </th>
+                    <th>
+                        Company
+                    </th>
+                    <th>
+                        Date Application
+                    </th>
+                    <th>
+                        Message
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+                </thead>
+                <tbody id="applications-table-body">
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</main>
+
+<div id="modal-ads" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" data-close="modal-ads">&times;</span>
+        <h2 id="modal-title-ads">Add Advertisement</h2>
+        <form id="form-ads">
+            <label>Title</label><input name="title">
+            <label>Short Description</label><textarea name="short_description"></textarea>
+            <label>Full Description</label><textarea name="full_description"></textarea>
+            <label>Salary</label><input name="salary">
+            <label>Type</label>
+            <select name="position_type">
+                <option>CDI</option><option>CDD</option><option>Internship</option>
+                <option>Apprenticeship</option><option>Interim</option><option>Part-time</option>
+            </select>
+            <label>Location</label><input name="location">
+            <label>Schedule</label><input name="schedule">
+            <label>Experience</label>
+            <select name="experience">
+                <option>Entry</option><option>Mid</option><option>Senior</option>
+            </select>
+            <label>Company</label><select name="company_id_select" id="company_id_select"></select>
+            <div class="modal-actions">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-secondary" data-close="modal-ads">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="modal-users" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" data-close="modal-users">&times;</span>
+        <h2 id="modal-title-users">Add User</h2>
+        <form id="form-users">
+            <label>First Name</label><input name="first_name">
+            <label>Last Name</label><input name="last_name">
+            <label>Email</label><input type="email" name="email">
+            <label>Phone</label><input name="phone">
+            <label>Password</label><input type="password" name="password">
+            <label>Type</label>
+            <select name="type_people" required>
+                <option value="1">Admin</option>
+                <option value="2">Company</option>
+                <option value="3">Candidate</option>
+            </select>
+            <label>Skills <i>(Separated by coma,Only for Candidate User)</i></label><textarea name="skills"></textarea>
+            <label>Company <i>(Only for Company User)</i></label><select name="company_id_select" id="user_company_id_select"></select>
+            <div class="modal-actions">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-secondary" data-close="modal-users">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="modal-users-update" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" data-close="modal-users">&times;</span>
+        <h2 id="modal-title-users-update">Add User</h2>
+        <form id="form-users-update">
+            <label>First Name</label><input name="first_name">
+            <label>Last Name</label><input name="last_name">
+            <label>Email</label><input type="email" name="email">
+            <label>Phone</label><input name="phone">
+            <label>Password</label><input type="password" name="password">
+            <input type="hidden" name="old_password"></input>
+            <label>Type</label>
+            <select name="type_people" required>
+                <option value="1">Admin</option>
+                <option value="2">Company</option>
+                <option value="3">Candidate</option>
+            </select>
+            <label>Skills <i>(Separated by coma,Only for Candidate User)</i></label><textarea name="skills"></textarea>
+            <label>Company <i>(Only for Company User)</i></label><select name="update_company_id_select" id="update_company_id_select"></select>
+            <div class="modal-actions">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-secondary" data-close="modal-users">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="modal-companies" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" data-close="modal-companies">&times;</span>
+        <h2 id="modal-title-companies">Add Company</h2>
+        <form id="form-companies">
+            <label>Name</label><input name="name">
+            <label>Address</label><input name="address">
+            <label>Description</label><textarea name="description"></textarea>
+            <div class="modal-actions">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-secondary" data-close="modal-companies">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="modal-applications" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" data-close="modal-applications">&times;</span>
+        <h2 id="modal-title-applications">Add Application</h2>
+        <form id="form-applications">
+            <label>Email</label><input name="email">
+            <label>First name</label><input name="first_name">
+            <label>Last Name</label><input name="last_name">
+            <label>Ad</label><select name="ad_id" id="ad_id_select"></select>
+            <label>Date Application</label><input type="date" name="date_application" id="date_today" disabled>
+            <label>Message</label><textarea name="message"></textarea>
+            <div class="modal-actions">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-secondary" data-close="modal-applications">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="modal-applications-update" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" data-close="modal-applications-update">&times;</span>
+        <h2 id="modal-title-applications-update">Edit Application</h2>
+        <form id="form-applications-update">
+            <label>Email</label><input name="email">
+            <label>First name</label><input name="first_name">
+            <label>Last name</label><input name="last_name">
+            <label>Ad</label><select name="ad_id" id="ad_id_select2"></select>
+            <label>Date Application</label><input type="date" name="date_application" disabled>
+            <label>Message</label><textarea name="message"></textarea>
+            <div class="modal-actions">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-secondary" data-close="modal-applications-update">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

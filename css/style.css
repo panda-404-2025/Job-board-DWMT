@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --accent-color: #4b77ca;
+    --base-color: rgb(255, 255, 255);
+    --text-color:  #081b29;
+    --input-color: #e3e6f9;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    font-size: 12pt;
+    color: var(--text-color);
+    text-align: center;
+}
+
+body{
+    min-height: 100vh;
+    background-image: url("../images/login_background.avif");
+    background-size: cover;
+    background-position: right;
+    overflow: hidden;
+}
+
+.wrapper{
+    box-sizing: border-box;
+    background-color: var(--base-color);
+    height: 100vh;
+    width: max(40%, 600px);
+    padding: 10px;
+    border-radius: 0 20px 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    margin: 0;
+    
+    height: 15vh;
+    top: 10px;
+    left: 0;
+}
+
+h1{
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+form{
+    width: min(400px,100%);
+    margin-top: 20px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+form > div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+form label > img {
+    width: 24px;
+    height: 24px;
+}
+
+form label.icon-label{
+    flex-shrink: 0;
+    height: 50px;
+    width: 50px;
+    background-color:var(--accent-color);
+    fill: var(--base-color);
+    color: var(--base-color);
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+form input{
+    box-sizing: border-box;
+    flex-grow: 1;
+    min-width: 0;
+    height: 50px;
+    padding: 1em;
+    font: inherit;
+    border-radius: 0 10px 10px 0;
+    border: none;
+    border-left: none;
+    background-color: var(--input-color);
+    transition: 150ms ease;
+}
+
+form input:hover{
+    border-color: var(--input-color);
+}
+
+form input:focus{
+    outline: none;
+    border-color: var(--text-color);
+}
+
+div:has(input:focus) > label{
+    background-color:var(--text-color);
+}
+
+form input::placeholder{
+    color: var(--text-color);
+}
+
+form button{
+    margin-top: 10px;
+    border: none;
+    border-radius: 1000px;
+    padding: 0.85em 4em;
+    background-color:var(--accent-color);
+    color: var(--base-color);
+    font: inherit;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 150ms ease;
+}
+
+form button:hover{
+    background-color:var(--text-color);
+}
+
+form button:focus{
+    outline:none;
+    background-color:var(--text-color);
+}
+
+a{
+    text-decoration: none;
+    color: var(--accent-color);
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+@media(max-width:1100px){
+    .wrapper{
+        width: min(600px,100%);
+        border-radius: 0;
+    }
+}
+
+form div.incorrect label{
+    background-color: #df5d6c;
+}
+
+form div.incorrect input{
+    border-color: #df5d6c;
+}
+
+#error_message{
+    color: #df5d6c;
+}
+
+.radio-row {
+    display: flex;
+    width: 100%;
+}
+
+.choice-group {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+}
+
+.choice-group input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.choice-group > label {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    padding: 0 16px;
+    width: auto;
+    background: var(--input-color);
+    color: var(--text-color);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    transition: 150ms ease;
+}
+
+.choice-group > label:hover {
+    filter: brightness(0.98);
+}
+
+.choice-group input[type="radio"]:checked + label {
+    background: var(--accent-color);
+    color: #fff;
+    border-color: var(--accent-color);
+}
+
+.skills-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.tags {
+    box-sizing: border-box;
+    flex-grow: 1;
+    min-width: 0;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px 10px;
+    background: var(--input-color);
+    border-radius: 0 10px 10px 0;
+}
+
+.tags > input#skillsInput {
+    flex: 1 1 160px;
+    min-width: 120px;
+    height: 32px;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: var(--text-color);
+    font: inherit;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chip-skill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #dbe3ff;
+    color: #0b1a2d;
+    font-size: 12px;
+}
+
+.chip-x {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    color: inherit;
+    font-size: 14px;
+    line-height: 1;
+    padding: 0 2px;
+}
+
+.tags:focus-within {
+    outline: 2px solid var(--accent-color);
+}
+
+.skills-row[hidden] { display: none !important; }
+
+/* Company select */
+
+.select-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.select-row[hidden] { display: none !important; }
+
+.select-row select {
+    box-sizing: border-box;
+    flex-grow: 1;
+    min-width: 0;
+    height: 50px;
+    padding: 0 12px;
+    font: inherit;
+    color: var(--text-color);
+    background: var(--input-color);
+    border: none;
+    border-radius: 0 10px 10px 0;
+    outline: none;
+    appearance: none;
+    background-image:
+        linear-gradient(45deg, transparent 50%, var(--text-color) 50%),
+        linear-gradient(135deg, var(--text-color) 50%, transparent 50%);
+    background-position:
+        calc(100% - 18px) 50%, calc(100% - 12px) 50%;
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+}
+.select-row select:focus {
+    outline: 2px solid var(--accent-color);
+}

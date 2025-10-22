@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --bg: #eff1f5;
+  --sidebar: #eceef3;
+  --card: #e0e5ee;
+  --card-2: #f8f9fa;
+  --primary: #4b77ca;
+  --primary-600: #427ae1;
+  --muted: #9fb0cd;
+  --text: #0e1f4e;
+  --text-dim: #0b0f1a;
+  --line: #ffffff;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,.2);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font: 15px/1.45 "Poppins";
+}
+
+/* Layout */
+.app { display: grid; grid-template-columns: 260px 1fr; min-height: 100vh; }
+
+/* Sidebar */
+.sidebar {
+  background: var(--sidebar);
+  border-right: 1px solid var(--line);
+  padding: 20px 16px;
+}
+.brand { display: flex; align-items: center; gap: 10px; margin-bottom: 22px; }
+.brand-logo {
+  width: 5vw; 
+  height: 5vh; 
+  border-radius: 8px; 
+  background: #eceef2;
+  display: grid; 
+  place-items: center; 
+  box-shadow: inset 0 0 0 2px #eff0f1;
+}
+.brand-logo img { width: 100%; height: 100%; fill: #6aa0ff; }
+/* .brand h1 { font-size: 15px; margin: 0; letter-spacing: .3px; color: var(--text);font-family: "Poppins";} */
+.nav { display: grid; gap: 6px; margin-top: 10px; color: var(--card); }
+.nav a {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; color: var(--text-dim);
+  padding: 10px 12px; border-radius: 10px; border: 1px solid transparent;
+    font-family: "Poppins", sans-serif;
+}
+.nav a:hover { background: transparent; border-color: #1a2a44; color: var(--text); }
+.nav a.active { background: transparent; border-color: #27406a; color: var(--text); }
+
+/* Main */
+.main { padding: 22px 28px; }
+.topbar { display: flex; align-items: center; gap: 14px; justify-content: space-between; margin-bottom: 18px;
+    font-family: "Poppins", sans-serif; }
+.welcome { color: var(--muted); margin: 0; }
+.user { display: flex; align-items: center; gap: 10px; }
+.avatar { width: 32px; height: 32px; border-radius: 50%; background: #1d2a43; }
+
+.back { display: inline-flex; align-items: center; gap: 8px; color:var(--primary); text-decoration: none; }
+.back:hover { color: var(--text); }
+
+.headline { font-size: 26px; font-weight: 700; margin: 10px 0 6px; }
+
+.btn_primary {color: var(--primary); display: flex; margin-left: auto;}
+
+/* Job summary banner */
+.chip{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chip .chip__icon{
+    margin: 10px;
+}
+
+.job-banner {
+  position: relative;
+  background: linear-gradient(135deg, #1a3a8b, #0f2a66 60%);
+  padding: 18px;
+  border-radius: var(--radius);
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+    font-family: "Poppins", sans-serif;
+  color: var(--bg);
+}
+
+.job-title { font-weight: 700; font-size: 18px; margin: 0 0 6px; }
+
+.job-meta { display: flex; gap: 14px; flex-wrap: wrap;}
+
+.list {display: grid; gap: 12px;
+    font-family: "Poppins", sans-serif;}
+
+.card{
+    border-style:solid;
+    border-color:var(--muted);
+    border-radius:var(--radius);
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.card .actions .btn{
+    border: 1px solid var(--muted);
+    border-radius: 10%;
+    color:var(--sidebar);
+    padding: 0.2rem;
+    position: relative;
+    top: 20px;
+    background:var(--primary);
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+}
+
+.card .actions .btn:hover{
+    color:var(--text);
+    letter-spacing: 1px;
+}
+
+.card .actions .btn_primary{
+    background:var(--primary);
+    cursor: pointer;
+    color: var(--card-2);
+    font-family: "Poppins", sans-serif;
+    padding: 0.2rem;
+    border: 1px solid var(--muted);
+    border-radius: 15%;
+}
+
+.card .actions .btn_primary:hover{
+    color:var(--text);
+    letter-spacing: 1px;
+}
+
+.modal-hd{font-family: "Poppins", sans-serif;}
+
+.modal-hd { 
+  display:flex; 
+  justify-content:space-between; 
+  align-items:center; 
+  gap: 8px;
+}
+
+.modal-hd strong { flex: 1; }
+
+.modal-hd .btn{
+  background: var(--primary);
+  color: var(--card-2);
+  border: 1px solid var(--muted);
+  border-radius: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+  margin-left: auto;
+  position: static;
+}
+
+
+.modal-hd .btn:focus-visible{
+    outline-style: none;
+}
+
+dialog{border-radius: var(--radius); border-color: var(--primary); color:var(--primary-600);}
+
+/* ===== Company Profile modal ===== */
+.company-profile { width: min(920px, 96vw); padding: 0; }
+
+.cp-card {
+  background: var(--card-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  color: var(--text);
+}
+
+.cp-header {
+  background: linear-gradient(135deg, #1a3a8b, #0f2a66 60%);
+  color: #fff;
+  padding: 18px 20px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.cp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  padding: 20px;
+}
+
+.cp-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.cp-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+
+.cp-avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--sidebar); object-fit: cover; }
+.cp-logo   { width: 56px; height: 56px; border-radius: 12px; background: var(--sidebar); object-fit: cover; }
+
+.cp-file .btn { background: var(--primary); color: #fff; border: 1px solid var(--muted); border-radius: 12px; padding: 6px 10px; cursor: pointer; }
+.cp-file .btn.success { background: #22c55e; border-color: #16a34a; }
+.cp-file-note { color: var(--muted); margin-left: 8px; font-size: 13px; }
+
+.cp-field { display: grid; gap: 6px; margin-bottom: 12px; }
+.cp-input, .cp-textarea {
+  width: 100%; border: 1px solid var(--muted); border-radius: 12px;
+  background: #fff; color: var(--text); padding: 10px 12px; font-family: "Poppins", sans-serif;
+}
+.cp-input:focus, .cp-textarea:focus { outline: 2px solid var(--primary); }
+
+.cp-actions {
+  display: flex; justify-content: flex-end; gap: 10px;
+  padding: 14px 20px; border-top: 1px solid var(--line); background: var(--card);
+}
+
+.btn { background: #14233c; color: #d8e6ff; border: 1px solid #2a4676; border-radius: 10px; padding: 8px 12px; cursor: pointer; text-decoration: none; }
+.btn:hover { filter: brightness(1.05); }
+.btn_primary { background: var(--primary); color: #fff; border-color: var(--primary-600); }
+
+
+/* dialog 基础外观（已有 dialog 样式可复用；这里补尺寸和内边距） */
+.modal {
+  width: min(900px, 96vw);
+  padding: 0;
+}
+.modal::backdrop {
+  background: rgba(3,9,20,.6);
+`}
+
+.modal-hd {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 16px;
+  border-bottom:1px solid var(--line);
+  background: linear-gradient(135deg, #1a3a8b, #0f2a66 60%);
+  color:#fff;
+}
+
+.modal-bd {
+  padding:16px;
+}
+
+#manageJobsList .card {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+#manageJobsList .meta {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+#manageJobsList .actions {
+  display:flex;
+  gap:8px;
+}
+
+/* Responsive */
+@media (max-width: 800px){
+  .cp-grid { grid-template-columns: 1fr; }
+}
