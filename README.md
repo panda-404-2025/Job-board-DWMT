@@ -1,6 +1,7 @@
-# 🎯 Job Board - T-WEB-501-PAR_23
+# 🎯 Job Board - DWMT
 
-Plateforme de recrutement complète avec interface web et API REST. Ce projet permet aux candidats de postuler à des offres d'emploi, aux entreprises de gérer leurs annonces et candidatures, et aux administrateurs de superviser l'ensemble de la plateforme.
+Plateforme de recrutement complète avec interface web et API REST. Ce projet permet aux candidats de postuler à des offres d'emploi, aux entreprises de gérer leurs annonces et candidatures, et aux administrateurs de superviser l'ensemble de la plateforme. 
+Projet réalisé par l'équipe de 3, Nolan, Inès et Zhuoan
 
 ## 📋 Table des matières
 
